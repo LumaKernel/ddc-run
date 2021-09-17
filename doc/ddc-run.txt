@@ -27,6 +27,10 @@ https://github.com/vim-denops/denops.vim
 
 ==============================================================================
 EXAMPLES						    *ddc-run-examples*
+
+Commands failed to run will be silently ignored, but recommended to filter out
+beforehand.
+
 >
 	call ddc#custom#alias('source', 'win32yank.exe', 'run')
 	call ddc#custom#patch_global('sources', ['run'])
