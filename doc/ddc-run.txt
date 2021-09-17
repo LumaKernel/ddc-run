@@ -1,0 +1,104 @@
+*ddc-run.txt*				     Deno.run() Completion for ddc.vim
+
+Author : Luma <world@luma.email>
+License: MIT <https://github.com/LumaKernel/ddc-run/blob/main/LICENSE>
+
+
+==============================================================================
+CONTENTS						    *ddc-run-contents*
+
+INTRODUCTION						|ddc-run-introduction|
+INSTALL							     |ddc-run-install|
+EXAMPLES						    |ddc-run-examples|
+PARAMS							      |ddc-run-params|
+
+==============================================================================
+INTRODUCTION						*ddc-run-introduction*
+
+This source collects candidates from Deno.run().
+
+==============================================================================
+INSTALL							     *ddc-run-install*
+
+Please install both "ddc.vim" and "denops.vim".
+
+https://github.com/Shougo/ddc.vim
+https://github.com/vim-denops/denops.vim
+
+==============================================================================
+EXAMPLES						    *ddc-run-examples*
+>
+	call ddc#custom#alias('source', 'win32yank.exe', 'run')
+	call ddc#custom#patch_global('sources', ['run'])
+	call ddc#custom#patch_global('sourceOptions', {
+	    \ 'win32yank.exe': {
+	    \   'mark': 'CLIP',
+	    \ }})
+	call ddc#custom#patch_global('sourceParams', {
+	    \ 'win32yank.exe': {
+	    \   'cmd': ['win32yank.exe', '-o'],
+	    \ }})
+
+	call ddc#custom#alias('source', 'my-command', 'run')
+	" ...
+<
+
+==============================================================================
+PARAMS							      *ddc-run-params*
+
+							   *ddc-run-param-cmd*
+cmd		(string[])
+		Command and args to pass to Deno.run(). Required.
+
+		Default: []
+
+							   *ddc-run-param-env*
+env		(Record<string, string>)
+		Environment variables to pass to Deno.run() as env.
+
+		Default: {}
+
+							 *ddc-run-param-regex*
+regex		(string)
+		RegExp for JavaScript to search words.
+
+		Default: "[-_\\p{L}\\d]+" (Read as JS expression)
+
+						     *ddc-run-param-regexMode*
+regexMode	(string)
+		Mode of RegExp for JavaScript to search words.
+
+		Default: "gu" (Read as JS expression)
+
+							*ddc-run-param-stdout*
+stdout		(boolean)
+		Whether to collect words from stdout.
+
+		Default: true
+
+							*ddc-run-param-stderr*
+stderr		(boolean)
+		Whether to collect words from stderr.
+
+		Default: false
+
+						    *ddc-run-param-ignoreFail*
+ignoreFail	(boolean)
+		Whether to ignore failed status.
+
+		Default: false
+
+							  *ddc-run-param-kind*
+kind		(string | undefined)
+		Value passed to completion as |ddc-candidate-attribute-kind|.
+
+		Default: undefined
+
+							  *ddc-run-param-menu*
+menu		(string | undefined)
+		Value passed to completion as |ddc-candidate-attribute-menu|.
+
+		Default: undefined
+
+==============================================================================
+vim:tw=78:ts=8:noet:ft=help:norl
