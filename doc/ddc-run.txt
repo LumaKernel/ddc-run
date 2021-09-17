@@ -33,7 +33,7 @@ beforehand.
 
 >
 	call ddc#custom#alias('source', 'win32yank.exe', 'run')
-	call ddc#custom#patch_global('sources', ['run'])
+	call ddc#custom#patch_global('sources', ['win32yank.exe'])
 	call ddc#custom#patch_global('sourceOptions', {
 	    \ 'win32yank.exe': {
 	    \   'mark': 'CLIP',
