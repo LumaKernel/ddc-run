@@ -72,7 +72,7 @@ regex		(string)
 regexMode	(string)
 		Mode of RegExp for JavaScript to search words.
 
-		Default: "gu" (Read as JS expression)
+		Default: "gu"
 
 							*ddc-run-param-stdout*
 stdout		(boolean)
