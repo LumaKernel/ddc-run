@@ -1,8 +1,8 @@
-import type { Candidate } from "https://deno.land/x/ddc_vim@v0.7.0/types.ts";
-import { BaseSource } from "https://deno.land/x/ddc_vim@v0.7.0/types.ts";
+import type { Candidate } from "https://deno.land/x/ddc_vim@v0.13.0/types.ts";
+import { BaseSource } from "https://deno.land/x/ddc_vim@v0.13.0/types.ts";
 import type {
   GatherCandidatesArguments,
-} from "https://deno.land/x/ddc_vim@v0.7.0/base/source.ts";
+} from "https://deno.land/x/ddc_vim@v0.13.0/base/source.ts";
 
 type Params = {
   cmd: string[];
@@ -16,9 +16,9 @@ type Params = {
   menu?: string;
 };
 
-export class Source extends BaseSource {
+export class Source extends BaseSource<Params> {
   async gatherCandidates(
-    args: GatherCandidatesArguments,
+    args: GatherCandidatesArguments<Params>,
   ): Promise<Candidate[]> {
     const p = args.sourceParams as Params;
     const pattern = new RegExp(p.regex, p.regexMode);

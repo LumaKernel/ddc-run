@@ -1,1 +1,1 @@
-import "./denops/ddc-sources/run.ts";
+import "./denops/@ddc-sources/run.ts";
